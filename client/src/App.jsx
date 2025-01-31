@@ -10,7 +10,7 @@ function App() {
 
 useEffect(() => {
   
-  axios("http://localhost:5000/api/v1/alltodos")
+  axios("https://inland-camala-devsquide-4e77adb5.koyeb.app/api/v1/alltodos")
   .then((res) => {
     console.log(res.data.todos)
     setTodos(res.data.todos);
@@ -27,7 +27,7 @@ const addTodo = async (event) => {
     return
   }
   try {
-    const res = await axios.post("http://localhost:5000/api/v1/todos", {
+    const res = await axios.post("https://inland-camala-devsquide-4e77adb5.koyeb.app/api/v1/todos", {
       title: title.current.value,
       description: description.current.value,
     });
@@ -49,7 +49,7 @@ const addTodo = async (event) => {
   const deleteTodo = async (id) => {
     console.log("Deleting todo with id:", id); // Debugging
    try {
-    const res = await axios.delete(`http://localhost:5000/api/v1/del/${id}`)
+    const res = await axios.delete(`https://inland-camala-devsquide-4e77adb5.koyeb.app/api/v1/del/${id}`)
     console.log(res.data);
     
     setTodos((preTodos) => preTodos.filter((todo) => todo._id !== id))
@@ -63,7 +63,7 @@ const addTodo = async (event) => {
   const editTodo = async (id) => {
     const title = prompt("update title")
    try {
-    const res = await axios.put(`http://localhost:5000/api/v1/edit/${id}`,{
+    const res = await axios.put(`https://inland-camala-devsquide-4e77adb5.koyeb.app/api/v1/edit/${id}`,{
       title,
     })
     console.log(res);
